@@ -1,4 +1,4 @@
-<%- include('views/partials/header.ejs')%>
+<%- include('./partials/header.ejs')%>
     <main>
         <section>
             <article>
@@ -23,33 +23,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Placeholder data to show the format of search results -->
-                        <tr>
-                            <td>Voyager 1</td>
-                            <td>September 5, 1977</td>
-                            <td>Interstellar Mission</td>
-                            <td>Active</td>
-                        </tr>
-                        <tr>
-                            <td>Hubble Space Telescope</td>
-                            <td>April 24, 1990</td>
-                            <td>Observation</td>
-                            <td>Active</td>
-                        </tr>
-                        <tr>
-                            <td>Europa Clipper</td>
-                            <td>October 10, 2024</td>
-                            <td>Explore Jupiter's moon Europa</td>
-                            <td>Pre-launch preparations</td>
-                        </tr>
-                        <!-- Additional dummy rows can be added here -->
+                        <% if (spacecrafts && spacecrafts.length > 0) { %>
+                            <% spacecrafts.forEach(spacecraft => { %>
+                              <tr>
+                                <td><%= spacecraft.name %></td>
+                                <td><%= spacecraft.launchDate %></td>
+                                <td><%= spacecraft.mission %></td>
+                                <td><%= spacecraft.status %></td>
+                              </tr>
+                            <% }); %>
+                          <% } else { %>
+                            <tr>
+                              <td colspan="4">No spacecrafts found.</td>
+                            </tr>
+                          <% } %>
                     </tbody>
                 </table>
             </article>
         </section>
 
     </main>
-    <%- include('views/partials/footer.ejs')%>
+    <%- include('./partials/footer.ejs')%>
 
         </body>
 
