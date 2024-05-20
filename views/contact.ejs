@@ -1,0 +1,52 @@
+<%- include('views/partials/header.ejs')%>
+
+    <main class="main-container">
+        <section>
+            <article>
+                <h2>Contact Us</h2>
+                <p>If you have any questions, suggestions, or would like to contribute to the Space Exploration Wiki,
+                    please fill out the form below. We're always looking to expand our knowledge and community.</p>
+                <form class="contactus" action="/submit_contact_form" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required pattern="[A-Za-z\s]{1,20}"
+                        title="Name should only contain letters. e.g. John Doe">
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required min="18" max="100"
+                        title="Age should be between 18 and 100">
+
+                    <label for="inquiry">Inquiry Type:</label>
+                    <select id="inquiry" name="inquiry" required>
+                        <option value="">Select an option</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="contribution">Contribution</option>
+                        <option value="technical">Technical Issue</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Your message here"></textarea>
+
+                    <div class="checkbox">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label for="consent">I agree to the terms and conditions.</label>
+                    </div>
+
+                    <input type="submit" value="Submit">
+                </form>
+                <h2>Frequently Asked Questions (FAQ)</h2>
+                <p><strong>Can I contribute to the Space Exploration Wiki?</strong> Yes, we welcome contributions!
+                    Please visit our About page for more information on how you can contribute.</p>
+                <p><strong>Where can I find information about specific space missions?</strong> You can find detailed
+                    information on various space missions in our Missions section.</p>
+            </article>
+        </section>
+    </main>
+    <%- include('views/partials/footer.ejs')%>
+
+        </body>
+
+        </html>

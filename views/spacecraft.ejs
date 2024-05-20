@@ -1,0 +1,56 @@
+<%- include('views/partials/header.ejs')%>
+    <main>
+        <section>
+            <article>
+                <h2>Search for Spacecraft</h2>
+                <p>Discover detailed information about various spacecraft, including missions, specifications, and
+                    historical data. Enter the name of the spacecraft you're interested in to learn more.</p>
+                <form id="searchForm">
+                    <label for="searchQuery">Spacecraft Name:</label>
+                    <input type="text" id="searchQuery" name="searchQuery" required>
+                    <input type="submit" value="Search">
+                </form>
+            </article>
+            <article>
+                <h2>Search Results</h2>
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Launch Date</th>
+                            <th>Mission Type</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Placeholder data to show the format of search results -->
+                        <tr>
+                            <td>Voyager 1</td>
+                            <td>September 5, 1977</td>
+                            <td>Interstellar Mission</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td>Hubble Space Telescope</td>
+                            <td>April 24, 1990</td>
+                            <td>Observation</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td>Europa Clipper</td>
+                            <td>October 10, 2024</td>
+                            <td>Explore Jupiter's moon Europa</td>
+                            <td>Pre-launch preparations</td>
+                        </tr>
+                        <!-- Additional dummy rows can be added here -->
+                    </tbody>
+                </table>
+            </article>
+        </section>
+
+    </main>
+    <%- include('views/partials/footer.ejs')%>
+
+        </body>
+
+        </html>
