@@ -17,7 +17,7 @@ exports.getAllSpacecrafts = async (req, res) => {
 exports.getSpacecraft = async (req, res) => {
   try {
     const spacecraft = await Spacecraft.findById(req.params.id);
-    res.render('spacecraftDetail', {
+    res.render('spacecraft', {
       title: 'Detail - Space Exploration Wiki',
       description: 'Detail of spacecraft.',
       spacecraft: spacecraft

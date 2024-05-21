@@ -10,10 +10,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
+const data = require('./public/js/data.js');
+const Contributor = require('./models/contributors');
+const Spacecraft = require('./models/spacecraft');
+
+
 app.use('/spacecraft', spacecraftRoutes);
 app.use('/contributors', contributorRoutes);
-const data = require('./public/js/data.js');
-
 
 app.get('/', (req, res) => {
   res.render('index', {
