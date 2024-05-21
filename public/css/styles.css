@@ -187,10 +187,10 @@
     margin-right: 20%;
     margin-top: 2.5%;
     margin-bottom: 2.5%;
-    border: 1px solid white;
+    border: 1px solid black;
     padding: 1em;
     h2{
-      color: white;
+      color: black;
     }
   } 
 
@@ -203,13 +203,13 @@
     margin-bottom: 2.5%;
     padding: 1em;
     h2{
-      color: white;
+      color: black;
     }
   }
 
   .mission {
     display: grid;
-    border: 1px solid white;
+    border: 1px solid black;
     padding: 1em;
     padding-bottom: 2em;
   }

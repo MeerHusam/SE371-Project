@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const contactSchema = new mongoose.Schema({
+const contributorSchema = new mongoose.Schema({
   name: String,
   email: String,
   age: Number,
@@ -9,4 +9,4 @@ const contactSchema = new mongoose.Schema({
   consent: Boolean
 });
 
-module.exports = mongoose.model('Contact', contactSchema);
+module.exports = mongoose.model('Contributor', contributorSchema);

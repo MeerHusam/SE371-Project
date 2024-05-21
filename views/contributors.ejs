@@ -3,10 +3,10 @@
     <main class="main-container">
         <section>
             <article>
-                <h2>Contact Us</h2>
+                <h2>Contribute</h2>
                 <p>If you have any questions, suggestions, or would like to contribute to the Space Exploration Wiki,
                     please fill out the form below. We're always looking to expand our knowledge and community.</p>
-                <form class="contactus" action="/submit_contact_form" method="post">
+                <form class="contributors" action="/submit_contribute_form" method="post">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required pattern="[A-Za-z\s]{1,20}"
                         title="Name should only contain letters. e.g. John Doe">
@@ -42,6 +42,42 @@
                     Please visit our About page for more information on how you can contribute.</p>
                 <p><strong>Where can I find information about specific space missions?</strong> You can find detailed
                     information on various space missions in our Missions section.</p>
+            </article>
+            <article>
+                <h2>Search for Contributions</h2>
+                <p> Search for specific contributions and read more about them</p>
+                <form id="searchForm">
+                    <label for="searchQuery">Contributor name:</label>
+                    <input type="text" id="searchQuery" name="searchQuery" required>
+                    <input type="submit" value="Search">
+                </form>
+            </article>
+            <article>
+                <h2>Search Results</h2>
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Inquiry</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (contributors && contributors.length > 0) { %>
+                            <% contributors.forEach(contributor => { %>
+                              <tr>
+                                <td><%= contributor.name %></td>
+                                <td><%= contributor.inquiry %></td>
+                                <td><%= contributor.message %></td>
+                              </tr>
+                            <% }); %>
+                          <% } else { %>
+                            <tr>
+                              <td colspan="4">No contributions.</td>
+                            </tr>
+                          <% } %>
+                    </tbody>
+                </table>
             </article>
         </section>
     </main>
