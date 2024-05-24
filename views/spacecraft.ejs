@@ -5,7 +5,7 @@
                 <h2>Search for Spacecraft</h2>
                 <p>Discover detailed information about various spacecraft, including missions, specifications, and
                     historical data. Enter the name of the spacecraft you're interested in to learn more.</p>
-                <form id="searchForm">
+                <form id="searchForm" action='/spacecraft' method="get">
                     <label for="searchQuery">Spacecraft Name:</label>
                     <input type="text" id="searchQuery" name="searchQuery" required>
                     <input type="submit" value="Search">
@@ -23,20 +23,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% if (spacecrafts && spacecrafts.length > 0) { %>
-                            <% spacecrafts.forEach(spacecraft => { %>
-                              <tr>
-                                <td><%= spacecraft.name %></td>
-                                <td><%= spacecraft.launchDate %></td>
-                                <td><%= spacecraft.mission %></td>
-                                <td><%= spacecraft.status %></td>
-                              </tr>
-                            <% }); %>
-                          <% } else { %>
-                            <tr>
-                              <td colspan="4">No spacecrafts found.</td>
-                            </tr>
-                          <% } %>
+                        <% if (spacecrafts && spacecrafts.length> 0) { %>
+                            <% spacecrafts.forEach(spacecraft=> { %>
+                                <tr>
+                                    <td>
+                                        <%= spacecraft.name %>
+                                    </td>
+                                    <td>
+                                        <%= spacecraft.launchDate %>
+                                    </td>
+                                    <td>
+                                        <%= spacecraft.mission %>
+                                    </td>
+                                    <td>
+                                        <%= spacecraft.status %>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                                    <% } else { %>
+                                        <tr>
+                                            <td colspan="4">No spacecrafts found.</td>
+                                        </tr>
+                                        <% } %>
                     </tbody>
                 </table>
             </article>

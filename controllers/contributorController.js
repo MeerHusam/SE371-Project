@@ -2,6 +2,20 @@ const Contributor = require('../models/contributors');
 
 
 exports.getContributors = async (req, res) => {
+  res.render('contributors', {
+    title: 'Space Exploration Wiki: About Us',
+    description: 'A comprehensive resource for space exploration history, technology, missions, and the future of interstellar travel.',
+    contributors: {
+      name: "String",
+  email: "String",
+  age: 20,
+  inquiry: "String",
+  message: "String",
+    }
+  });
+};
+
+exports.searchContributors = async (req, res) => {
     try {
       const contributors = await Contributor.find({});
       res.render('contributors', {

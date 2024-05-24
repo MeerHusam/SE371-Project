@@ -16,8 +16,10 @@ const Spacecraft = require('./models/spacecraft');
 
 
 app.use('/spacecraft', spacecraftRoutes);
+app.use('/spacecraft', spacecraftRoutes);
 app.use('/contributors', contributorRoutes);
 app.use('/contributors/submit_contribute_form', contributorRoutes);
+app.use('/contributors/search_contributor', contributorRoutes);
 
 
 app.get('/', (req, res) => {
@@ -61,59 +63,6 @@ app.get('/missions', (req, res) => {
     description: 'A comprehensive resource for space exploration history, technology, missions, and the future of interstellar travel.'
   });
 });
-
-
-
-// // Contact form submission route
-// app.post('/submit_contribute_form', (req, res) => {
-//   const newContributor = new Contributor({
-//     name: req.body.name,
-//     email: req.body.email,
-//     age: req.body.age,
-//     inquiry: req.body.inquiry,
-//     message: req.body.message,
-//     consent: req.body.consent
-//   });
-
-//   newContributor.save()
-//     .then(result => {
-//       response.redirect('/contributors');
-//     })
-//     .catch(error => {
-//       console.log(`Could not save company object into database: ${error}`);
-//       response.redirect('/contributors');
-//     })
-// });
-
-// // Spacecraft search form submission route
-// app.get('/spacecraft', async (req, res) => {
-//   try {
-//     const spacecrafts = await Spacecraft.find({});
-//     res.render('spacecraft', {
-//       title: 'Spacecraft - Space Exploration Wiki',
-//       description: 'List of all spacecrafts.',
-//       spacecrafts: spacecrafts
-//     });
-//   } catch (err) {
-//     console.error('Error retrieving spacecrafts:', err);
-//     res.status(500).send('Error retrieving spacecraft data.');
-//   }
-// });
-
-// app.get('/contributors', async (req, res) => {
-//   try {
-//     const contributors = await Contributor.find({});
-//     res.render('contributors', {
-//       title: 'Contributors - Space Exploration Wiki',
-//       description: 'List of all spacecrafts.',
-//       contributors: contributors
-//     });
-//   } catch (err) {
-//     console.error('Error retrieving spacecrafts:', err);
-//     res.status(500).send('Error retrieving spacecraft data.');
-//   }
-// });
-
 
 // Start the server
 mongoose.connect(process.env.MONGO_URI)

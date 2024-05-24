@@ -8,4 +8,5 @@ router.post('/submit_contribute_form', contributorController.submitContributorFo
 // Route to fetch all contributors
 router.get('/', contributorController.getContributors);
 
+router.get('/searchContributors', contributorController.searchContributors);
 module.exports = router;
