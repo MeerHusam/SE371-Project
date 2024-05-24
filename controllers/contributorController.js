@@ -1,33 +1,28 @@
 const Contributor = require('../models/contributors');
 
-
-exports.getContributors = async (req, res) => {
+exports.getAllContributors = async (req, res) => {
+  const contributors = await Contributor.find({});
   res.render('contributors', {
-    title: 'Space Exploration Wiki: About Us',
+    title: 'Space Exploration Wiki: Contributors',
     description: 'A comprehensive resource for space exploration history, technology, missions, and the future of interstellar travel.',
-    contributors: {
-      name: "String",
-  email: "String",
-  age: 20,
-  inquiry: "String",
-  message: "String",
-    }
+    contributors: contributors
   });
 };
 
 exports.searchContributors = async (req, res) => {
-    try {
-      const contributors = await Contributor.find({});
-      res.render('contributors', {
-        title: 'Contributors - Space Exploration Wiki',
-        description: 'List of all contributors.', // Corrected description
-        contributors: contributors
-      });
-    } catch (err) {
-      console.error('Error retrieving contributors:', err);
-      res.status(500).send('Error retrieving contributor data.');
-    }
-  };
+  try {
+    const searchQuery = req.query.searchQuery;
+    const contributors = await Contributor.find({ name: searchQuery });
+    res.render('contributors', {
+      title: 'Contributors - Space Exploration Wiki',
+      description: 'List of all contributors.', // Corrected description
+      contributors: contributors
+    });
+  } catch (err) {
+    console.error('Error retrieving contributors:', err);
+    res.status(500).send('Error retrieving contributor data.');
+  }
+};
 
 exports.submitContributorForm = async (req, res) => {
   try {
