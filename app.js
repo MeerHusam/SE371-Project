@@ -32,6 +32,13 @@ app.get('/about', (req, res) => {
   });
 });
 
+app.get('/contributors', (req, res) => {
+  res.render('contributors', {
+    title: 'Space Exploration Wiki: About Us',
+    description: 'A comprehensive resource for space exploration history, technology, missions, and the future of interstellar travel.'
+  });
+});
+
 app.get('/future', (req, res) => {
   res.render('future', {
     title: 'Space Exploration Wiki: Future',
