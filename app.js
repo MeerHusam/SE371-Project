@@ -16,7 +16,6 @@ const Spacecraft = require('./models/spacecraft');
 
 
 app.use('/spacecraft', spacecraftRoutes);
-app.use('/spacecraft', spacecraftRoutes);
 app.use('/contributors', contributorRoutes);
 app.use('/contributors/submit_contribute_form', contributorRoutes);
 app.use('/contributors/search_contributor', contributorRoutes);
@@ -63,6 +62,7 @@ app.get('/missions', (req, res) => {
     description: 'A comprehensive resource for space exploration history, technology, missions, and the future of interstellar travel.'
   });
 });
+
 
 // Start the server
 mongoose.connect(process.env.MONGO_URI)

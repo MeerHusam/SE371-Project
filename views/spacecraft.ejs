@@ -5,10 +5,13 @@
                 <h2>Search for Spacecraft</h2>
                 <p>Discover detailed information about various spacecraft, including missions, specifications, and
                     historical data. Enter the name of the spacecraft you're interested in to learn more.</p>
-                <form id="searchForm" action='/spacecraft' method="get">
+                <form id="searchForm" action='/spacecraft/search' method="get">
                     <label for="searchQuery">Spacecraft Name:</label>
                     <input type="text" id="searchQuery" name="searchQuery" required>
                     <input type="submit" value="Search">
+                </form>
+                <form id="getAll" action='/spacecraft' method="get">
+                    <input type="submit" value="Get All Spacecrafts">
                 </form>
             </article>
             <article>
