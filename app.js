@@ -17,6 +17,8 @@ const Spacecraft = require('./models/spacecraft');
 
 app.use('/spacecraft', spacecraftRoutes);
 app.use('/contributors', contributorRoutes);
+app.use('/contributors/submit_contribute_form', contributorRoutes);
+
 
 app.get('/', (req, res) => {
   res.render('index', {

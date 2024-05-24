@@ -6,7 +6,6 @@ const contributorSchema = new mongoose.Schema({
   age: Number,
   inquiry: String,
   message: String,
-  consent: Boolean
 });
 
 module.exports = mongoose.model('Contributor', contributorSchema);
